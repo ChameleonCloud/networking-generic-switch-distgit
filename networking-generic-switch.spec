@@ -4,13 +4,13 @@
 %global sum Pluggable framework to implement functionality required for use-cases like OpenStack Ironic multi-tenancy mode
 
 Name:           %{srcname}
-Version:        0.2.1.dev9
+Version:        0.4.0
 Release:        1%{?dist}
 Summary:        %{sum}
 
 License:        ASL 2.0
 URL:            http://pypi.python.org/pypi/%{srcname}
-Source0:        https://tarballs.openstack.org/networking-generic-switch/networking-generic-switch-stable-ocata.tar.gz
+Source0:        https://tarballs.openstack.org/networking-generic-switch/networking-generic-switch-stable-pike.tar.gz
 
 BuildArch:      noarch
 
@@ -23,7 +23,10 @@ Requires: python-neutron-lib >= 1.1.0
 Requires: python-oslo-config >= 2:3.14.0
 Requires: python-oslo-i18n >= 2.1.0
 Requires: python-oslo-log >= 3.11.0
+Requires: python-six >= 1.9.0
 Requires: python-stevedore >= 1.17.1
+Requires: python-tenacity >= 3.2.1
+Requires: python-tooz >= 1.47.0
 
 # These are requirements for unit testing
 BuildRequires: python-mock
@@ -56,5 +59,8 @@ install -p -D -m 640 etc/neutron/plugins/ml2/ml2_conf_genericswitch.ini.sample %
 %config(noreplace) %attr(-, root, neutron) %{_sysconfdir}/neutron/plugins/ml2/ml2_conf_genericswitch.ini
 
 %changelog
+* Tue Sep 12 2017 Pierre Riteau <priteau@uchicago.edu> 0.4.0-1
+- Initial package of OpenStack Pike stable branch
+
 * Mon Aug 21 2017 Pierre Riteau <priteau@uchicago.edu> 0.2.1.dev9-1
 - Initial package of OpenStack Ocata stable branch
