@@ -5,12 +5,12 @@
 
 Name:           %{srcname}
 Version:        0.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        %{sum}
 
 License:        ASL 2.0
 URL:            http://pypi.python.org/pypi/%{srcname}
-Source0:        https://tarballs.openstack.org/networking-generic-switch/networking-generic-switch-stable-pike.tar.gz
+Source0:        https://github.com/ChameleonCloud/networking-generic-switch/archive/master/%{name}-%{version}.tar.gz
 
 BuildArch:      noarch
 
@@ -43,7 +43,7 @@ BuildRequires: python-stevedore
 Pluggable framework to implement functionality required for use-cases like OpenStack Ironic multi-tenancy mode.
 
 %prep
-%autosetup -n %{srcname}-%{upstream_version} -p1
+%autosetup -n %{srcname}-master -p1
 
 %build
 %{__python2} setup.py build
@@ -59,6 +59,9 @@ install -p -D -m 640 etc/neutron/plugins/ml2/ml2_conf_genericswitch.ini.sample %
 %config(noreplace) %attr(-, root, neutron) %{_sysconfdir}/neutron/plugins/ml2/ml2_conf_genericswitch.ini
 
 %changelog
+* Tue Jan 2 2018 Pierre Riteau <priteau@uchicago.edu> 0.4.0-2
+- Update package with Chameleon patches
+
 * Tue Sep 12 2017 Pierre Riteau <priteau@uchicago.edu> 0.4.0-1
 - Initial package of OpenStack Pike stable branch
 
