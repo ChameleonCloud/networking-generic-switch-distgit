@@ -46,10 +46,10 @@ Pluggable framework to implement functionality required for use-cases like OpenS
 %autosetup -n %{srcname}-master -p1
 
 %build
-%{__python2} setup.py build
+PBR_VERSION=%{version} %{__python2} setup.py build
 
 %install
-%{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
+PBR_VERSION=%{version} %{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
 install -p -D -m 640 etc/neutron/plugins/ml2/ml2_conf_genericswitch.ini.sample %{buildroot}/%{_sysconfdir}/neutron/plugins/ml2/ml2_conf_genericswitch.ini
 
 %files
