@@ -43,7 +43,7 @@ BuildRequires: python-stevedore
 Pluggable framework to implement functionality required for use-cases like OpenStack Ironic multi-tenancy mode.
 
 %prep
-%autosetup -n %{srcname}-master -p1
+%autosetup -n %{srcname}-%{branch} -p1
 
 %build
 PBR_VERSION=%{version} %{__python2} setup.py build
