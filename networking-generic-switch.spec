@@ -1,4 +1,4 @@
-%{!?upstream_version: %global upstream_version %{version}}
+%{!?branch: %global branch master}
 
 %global srcname networking-generic-switch
 %global sum Pluggable framework to implement functionality required for use-cases like OpenStack Ironic multi-tenancy mode
@@ -10,7 +10,7 @@ Summary:        %{sum}
 
 License:        ASL 2.0
 URL:            http://pypi.python.org/pypi/%{srcname}
-Source0:        https://github.com/ChameleonCloud/networking-generic-switch/archive/master/%{name}-%{version}.tar.gz
+Source0:        https://github.com/ChameleonCloud/networking-generic-switch/archive/%{branch}/%{name}-%{version}.tar.gz
 
 BuildArch:      noarch
 
