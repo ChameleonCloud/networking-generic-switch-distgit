@@ -5,7 +5,7 @@
 
 Name:           %{srcname}
 Version:        0.4.0
-Release:        13%{?dist}
+Release:        14%{?dist}
 Summary:        %{sum}
 
 License:        ASL 2.0
@@ -59,6 +59,9 @@ install -p -D -m 640 etc/neutron/plugins/ml2/ml2_conf_genericswitch.ini.sample %
 %config(noreplace) %attr(-, root, neutron) %{_sysconfdir}/neutron/plugins/ml2/ml2_conf_genericswitch.ini
 
 %changelog
+* Wed Feb 27 2019 Jason Anderson <jasonanderson@uchicago.edu> 0.4.0-14
+- Update package with Chameleon patches
+
 * Mon Nov 26 2018 Jason Anderson <jasonanderson@uchicago.edu> 0.4.0-13
 - Update package with Chameleon patches
 
